@@ -308,9 +308,9 @@ int main(int argc, char **argv)
 	static const struct option longopts[] = {
 		{"one", no_argument, NULL, '1'},
 		{"three", no_argument, NULL, '3'},
+		{"saturday", no_argument, NULL, 't'},
 		{"sunday", no_argument, NULL, 's'},
 		{"monday", no_argument, NULL, 'm'},
-		{"saturday", no_argument, NULL, 't'},
 		{"julian", no_argument, NULL, 'j'},
 		{"months", required_argument, NULL, 'n'},
 		{"span", no_argument, NULL, 'S'},
@@ -373,7 +373,7 @@ int main(int argc, char **argv)
 		ctl.weekstart = (wfd + *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) - 1) % DAYS_IN_WEEK;
 	}
 #endif
-	while ((ch = getopt_long(argc, argv, "13mjnt:sSywYvc:Vh", longopts, NULL)) != -1) {
+	while ((ch = getopt_long(argc, argv, "13mjn:tsSywYvc:Vh", longopts, NULL)) != -1) {
 
 		err_exclusive_options(ch, longopts, excl, excl_st);
 
